@@ -1,0 +1,27 @@
+# Build-Ausgaben
+[Bb]in/
+[Oo]bj/
+dist/
+
+# Referenz-Assemblies (gross, NICHT committen - via tools/gen-interop.sh regenerierbar)
+libs/
+
+# Maschinen-spezifisch (Pfad zur BepInEx-Installation)
+game.props
+
+# Analyse-Sandbox-Artefakte (gehoeren nicht ins Repo)
+*.dll.orig
+dump.cs
+script.json
+il2cpp.h
+*.dat
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+
+# Interop-Toolchain-Cache (Downloads)
+.cache/
+.hermes_origin

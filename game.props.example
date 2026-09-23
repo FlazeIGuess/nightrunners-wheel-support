@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Optional: build against a real BepInEx installation instead of libs/.
+  Copy this file to game.props (gitignored) and adjust the path.
+  Then: dotnet build -c Release -p:NrRefRoot=<path>\BepInEx
+-->
+<Project>
+  <PropertyGroup>
+    <NrRefRoot>D:\Games\night-runners-private-alpha\BepInEx</NrRefRoot>
+  </PropertyGroup>
+</Project>
