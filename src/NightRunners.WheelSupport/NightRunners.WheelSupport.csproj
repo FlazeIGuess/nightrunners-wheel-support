@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>NightRunners.WheelSupport</AssemblyName>
+    <Product>NIGHT-RUNNERS Wheel Support</Product>
+    <Version>0.1.0-alpha</Version>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>portable</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <!-- Copy SharpDX (NuGet) into bin so it ships with the mod -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <NoWarn>$(NoWarn);CS0649;CS0169;NU1701;NETSDK1138</NoWarn>
+    <!-- Output folder for the finished mod incl. SharpDX dependencies -->
+    <DistDir>$(MSBuildProjectDirectory)/../../dist/plugins/NightRunners.WheelSupport/</DistDir>
+  </PropertyGroup>
+
+  <!-- SharpDX.DirectInput: our own managed DirectInput layer for axes + force feedback.
+       Shipped with the mod (Private=true) because the game does not expose it as managed code. -->
+  <ItemGroup>
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.DirectInput" Version="4.2.0" />
+  </ItemGroup>
+
+  <!-- BepInEx core + Il2Cpp interop: provided by the game/loader, do NOT copy (Private=false) -->
+  <ItemGroup>
+    <Reference Include="BepInEx.Core"><HintPath>$(NrCorePath)BepInEx.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx.Unity.Common"><HintPath>$(NrCorePath)BepInEx.Unity.Common.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx.Unity.IL2CPP"><HintPath>$(NrCorePath)BepInEx.Unity.IL2CPP.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Runtime"><HintPath>$(NrCorePath)Il2CppInterop.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Common"><HintPath>$(NrCorePath)Il2CppInterop.Common.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(NrCorePath)0Harmony.dll</HintPath><Private>false</Private></Reference>
+
+    <Reference Include="Assembly-CSharp"><HintPath>$(NrInteropPath)Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2Cppmscorlib"><HintPath>$(NrInteropPath)Il2Cppmscorlib.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppSystem"><HintPath>$(NrInteropPath)Il2CppSystem.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(NrInteropPath)UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(NrInteropPath)UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.PhysicsModule"><HintPath>$(NrInteropPath)UnityEngine.PhysicsModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(NrInteropPath)UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(NrInteropPath)UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(NrInteropPath)UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <!-- Collect the finished mod + SharpDX into dist/ (the folder that goes into BepInEx/plugins) -->
+  <Target Name="CollectDist" AfterTargets="Build">
+    <ItemGroup>
+      <_DistFiles Include="$(TargetDir)$(AssemblyName).dll" />
+      <_DistFiles Include="$(TargetDir)$(AssemblyName).pdb" />
+      <_DistFiles Include="$(TargetDir)SharpDX.dll" />
+      <_DistFiles Include="$(TargetDir)SharpDX.DirectInput.dll" />
+    </ItemGroup>
+    <MakeDir Directories="$(DistDir)" />
+    <Copy SourceFiles="@(_DistFiles)" DestinationFolder="$(DistDir)" SkipUnchangedFiles="true" ContinueOnError="true" />
+    <Message Importance="high" Text="[NR-Wheel] dist ready: $(DistDir)" />
+  </Target>
+
+</Project>

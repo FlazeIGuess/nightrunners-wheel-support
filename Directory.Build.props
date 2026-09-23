@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Central build configuration for the Night-Runners Wheel Support mod.
+
+  Reference assemblies (BepInEx core + Il2Cpp interop) are resolved from $(NrRefRoot).
+  Default: the local libs/ directory (populated by tools/gen-interop.sh, or copied from a
+  BepInEx installation).
+
+  Alternatively build directly against a real BepInEx installation:
+    dotnet build -c Release -p:NrRefRoot=D:\Games\night-runners-private-alpha\BepInEx
+    (then core/ and interop/ live under that path)
+-->
+<Project>
+  <PropertyGroup>
+    <NrRefRoot Condition="'$(NrRefRoot)' == ''">$(MSBuildThisFileDirectory)libs</NrRefRoot>
+    <NrCorePath>$(NrRefRoot)/core/</NrCorePath>
+    <NrInteropPath>$(NrRefRoot)/interop/</NrInteropPath>
+  </PropertyGroup>
+</Project>
