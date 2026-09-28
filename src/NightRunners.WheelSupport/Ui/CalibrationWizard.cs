@@ -321,7 +321,7 @@ namespace NightRunners.WheelSupport.Ui
         {
             Gui.Label("This wizard detects your wheel's axes and buttons, step by step.");
             Gui.Space(4f);
-            Gui.Label("ALPHA NOTICE (v0.1.0-alpha): Early development build.");
+            Gui.Label("ALPHA NOTICE (v0.1.1-alpha): Early development build.");
             Gui.Label("Not all steering wheels or pedals are supported yet. You may encounter bugs,");
             Gui.Label("strange vehicle physics, or calibration quirks during early testing.");
             Gui.Space(6f);

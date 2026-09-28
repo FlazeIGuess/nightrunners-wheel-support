@@ -1,15 +1,16 @@
-# NIGHT-RUNNERS Wheel Support (v0.1.0-alpha)
+# NIGHT-RUNNERS Wheel Support (v0.1.1-alpha)
 
-A standalone BepInEx 6 plugin that adds steering wheel support, custom DirectInput force feedback, manual clutch simulation, and H-shifter support to **NIGHT-RUNNERS** (Private Alpha).
+A standalone BepInEx 6 plugin that adds steering wheel support, custom DirectInput force feedback, manual clutch simulation, and H-shifter support to **NIGHT-RUNNERS** (Private Alpha and Prologue).
 
 ---
 
 ### Early Alpha Notice
 
-This mod is currently in early alpha development (version `0.1.0-alpha`).
+This mod is currently in early alpha development (version `0.1.1-alpha`).
 - Not all steering wheels, pedal sets, or shifters are supported out of the box.
 - You may encounter bugs, strange vehicle physics, or unexpected handling quirks while driving.
 - Please test and tune your settings carefully in the F9 menu before doing high-speed highway runs.
+- Supported game builds: NIGHT-RUNNERS Private Alpha and NIGHT-RUNNERS Prologue. Hotkeys use Windows native key polling when a game build does not include Unity's legacy input module, so they work on both builds.
 
 ---
 
@@ -23,7 +24,7 @@ This mod relies on **BepInEx**, an open-source Unity modding framework maintaine
 
 ## Requirements
 
-1. **NIGHT-RUNNERS** (Private Alpha build)
+1. **NIGHT-RUNNERS** (Private Alpha or Prologue build)
 2. **BepInEx 6 (Unity IL2CPP x64)**
    - Official BepInEx Download: [BepInEx Bleeding Edge Builds](https://builds.bepinex.dev/projects/bepinex_be) or [BepInEx Releases on GitHub](https://github.com/BepInEx/BepInEx/releases)
    - Make sure you download the **`BepInEx_UnityIL2CPP_x64`** package (version 6.0.0-be.680 or newer).
@@ -35,7 +36,7 @@ This mod relies on **BepInEx**, an open-source Unity modding framework maintaine
 If your game does not already have BepInEx installed:
 
 1. Download the latest **`BepInEx_UnityIL2CPP_x64_...zip`** from the link above.
-2. Open your NIGHT-RUNNERS installation directory (where `NIGHT-RUNNERS PRIVATE ALPHA.exe` is located).
+2. Open your NIGHT-RUNNERS installation directory (the folder that contains your game executable, for example `NIGHT-RUNNERS PRIVATE ALPHA.exe` or `NIGHT-RUNNERS PROLOGUE.exe`).
 3. Extract all contents of the zip file directly into the game root folder.
 4. Your game directory should now look like this:
    ```text
@@ -52,7 +53,7 @@ If your game does not already have BepInEx installed:
 
 ## Installing the Wheel Support Mod
 
-1. Go to the **Releases** tab of this repository and download **`NightRunners.WheelSupport-v0.1.0-alpha.zip`**.
+1. Go to the **Releases** tab of this repository and download **`NightRunners.WheelSupport-v0.1.1-alpha.zip`**.
 2. Extract the folder into your game's `BepInEx/plugins/` directory:
    ```text
    NIGHT-RUNNERS/

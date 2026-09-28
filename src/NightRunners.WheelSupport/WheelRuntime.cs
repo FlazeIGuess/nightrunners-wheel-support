@@ -166,14 +166,14 @@ namespace NightRunners.WheelSupport
                 // 2) Keyboard emulation for H-shifter (Keys 1-6, R, 0/N)
                 if (cfg.KeyboardShifter.Value && !_ui.AnyOpen)
                 {
-                    if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha1) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad1)) _desiredGear = 1;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha2) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad2)) _desiredGear = 2;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha3) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad3)) _desiredGear = 3;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha4) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad4)) _desiredGear = 4;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha5) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad5)) _desiredGear = 5;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha6) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad6)) _desiredGear = 6;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.R) || UnityEngine.Input.GetKeyDown(KeyCode.KeypadPeriod)) _desiredGear = -1;
-                    else if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha0) || UnityEngine.Input.GetKeyDown(KeyCode.Keypad0) || UnityEngine.Input.GetKeyDown(KeyCode.N)) _desiredGear = 0;
+                    if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha1) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad1)) _desiredGear = 1;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha2) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad2)) _desiredGear = 2;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha3) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad3)) _desiredGear = 3;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha4) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad4)) _desiredGear = 4;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha5) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad5)) _desiredGear = 5;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha6) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad6)) _desiredGear = 6;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.R) || Input.KeyPolling.GetKeyDown(KeyCode.KeypadPeriod)) _desiredGear = -1;
+                    else if (Input.KeyPolling.GetKeyDown(KeyCode.Alpha0) || Input.KeyPolling.GetKeyDown(KeyCode.Keypad0) || Input.KeyPolling.GetKeyDown(KeyCode.N)) _desiredGear = 0;
                 }
 
                 // 3) Clutch pedal state

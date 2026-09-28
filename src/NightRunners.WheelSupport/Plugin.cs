@@ -15,7 +15,7 @@ namespace NightRunners.WheelSupport
     {
         public const string PluginGuid = "com.flaze.nightrunners.wheelsupport";
         public const string PluginName = "NIGHT-RUNNERS Wheel Support";
-        public const string PluginVersion = "0.1.0-alpha";
+        public const string PluginVersion = "0.1.1-alpha";
 
         public override void Load()
         {

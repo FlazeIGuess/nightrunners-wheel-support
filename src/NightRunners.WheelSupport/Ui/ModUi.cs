@@ -64,15 +64,15 @@ namespace NightRunners.WheelSupport.Ui
             {
                 if (GetKeyDown(cfg.CalibrateHotkey.Value, KeyCode.F10))
                 {
-                    if (WizardOpen) CloseAll();
-                    else OpenWizard(wheel);
+                    if (WizardOpen) { CloseAll(); ModLog.Info("Calibration wizard closed (hotkey)."); }
+                    else { OpenWizard(wheel); ModLog.Info("Calibration wizard opened (hotkey)."); }
                 }
                 if (GetKeyDown(cfg.MenuHotkey.Value, KeyCode.F9))
                 {
-                    if (MenuOpen) CloseAll();
-                    else OpenMenu(wheel);
+                    if (MenuOpen) { CloseAll(); ModLog.Info("Settings menu closed (hotkey)."); }
+                    else { OpenMenu(wheel); ModLog.Info("Settings menu opened (hotkey)."); }
                 }
-                if (UnityEngine.Input.GetKeyDown(KeyCode.F8))
+                if (KeyPolling.GetKeyDown(KeyCode.F8))
                 {
                     if (cfg != null && cfg.ShowWatermark != null)
                     {
@@ -81,7 +81,7 @@ namespace NightRunners.WheelSupport.Ui
                         ModLog.Info($"Watermark HUD display: {(cfg.ShowWatermark.Value ? "ON" : "OFF")}");
                     }
                 }
-                if (AnyOpen && UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+                if (AnyOpen && KeyPolling.GetKeyDown(KeyCode.Escape))
                     CloseAll();
             }
             catch (Exception e) { ModLog.DebugThrottled("hotkey", now, 3f, $"Hotkey error: {e.Message}"); }
@@ -202,7 +202,7 @@ namespace NightRunners.WheelSupport.Ui
             KeyCode kc = fallback;
             if (!string.IsNullOrEmpty(keyName) && Enum.TryParse<KeyCode>(keyName, true, out var parsed))
                 kc = parsed;
-            return UnityEngine.Input.GetKeyDown(kc);
+            return KeyPolling.GetKeyDown(kc);
         }
     }
 }

@@ -195,7 +195,7 @@ namespace NightRunners.WheelSupport.Ui
 
             Gui.Label(w != null && w.Available ? $"Device: {w.DeviceName}" : "No wheel connected.");
             Gui.Space(4f);
-            Gui.Label("ALPHA NOTICE (v0.1.0-alpha): Early development build.");
+            Gui.Label("ALPHA NOTICE (v0.1.1-alpha): Early development build.");
             Gui.Label("Not all steering wheels or pedals are supported yet. Expect bugs, unusual car");
             Gui.Label("handling, or physics glitches. Tune steering linearity and FFB carefully.");
             Gui.Space(6f);
@@ -284,7 +284,7 @@ namespace NightRunners.WheelSupport.Ui
         private bool _requestClose;
         public bool ConsumeCloseRequest() { var c = _requestClose; _requestClose = false; return c; }
 
-        // --- Profile management state (v0.1.0-alpha) ---
+        // --- Profile management state (v0.1.1-alpha) ---
         private string _profileName = "";
         private List<string> _profileList = new List<string>();
         private bool _profileListDirty = true;
